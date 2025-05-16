@@ -1,0 +1,64 @@
+.conteiner_register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  & .card {
+    display: flex;
+    flex-direction: row;
+
+    & .left_card {
+      & img {
+        width: 435px;
+        height: 450px;
+      }
+    }
+    & .right_card {
+      width: 450px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      & form {
+        width: 70%;
+
+        & .title_logo {
+          & h3 {
+            text-align: center;
+            color: #111827;
+          }
+        }
+        & app-text-input{
+              width: 100%;
+        }
+
+        & .btns {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+
+          width: 100%;
+          margin-top: 25px;
+
+          & button {
+            width: 100%;
+            font-size: 18px;
+            color: #fff;
+            background-color: #6d5fbe;
+            border-radius: 8px;
+            padding: .2rem;
+
+            cursor: pointer;
+            transition: .2s ease-in-out;
+
+          }
+
+          & button:hover {
+            color: #00340C;
+            background: #808080;
+          }
+        }
+      }
+    }
+  }
+}
