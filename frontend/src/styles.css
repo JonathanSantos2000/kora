@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #e0f7fa;
+  background: linear-gradient(
+    -210deg,
+    rgba(224, 247, 250, 1) 0%,
+    rgba(128, 222, 234, 1) 100%
+  );
+  width: 100vw;
+  height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+.align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
