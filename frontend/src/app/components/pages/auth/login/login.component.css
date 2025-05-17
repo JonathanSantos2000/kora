@@ -1,0 +1,71 @@
+.conteiner_register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  & .card {
+    display: flex;
+    flex-direction: row;
+
+    & .right_card {
+      border: 1px solid #fff;
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+
+      & img {
+        width: 435px;
+        height: 450px;
+      }
+    }
+    & .left_card {
+      width: 450px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #fff;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      & form {
+        width: 70%;
+
+        & .title_logo {
+          & h3 {
+            text-align: center;
+            color: #8a8181;
+          }
+        }
+        & app-text-input {
+          width: 100%;
+        }
+
+        & .btns {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+
+          width: 100%;
+          margin-top: 25px;
+
+          & button {
+            width: 100%;
+            font-size: 18px;
+            color: #fff;
+            background-color: #10b981;
+            border: none;
+            border-radius: 8px;
+            padding: 0.2rem;
+
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+          }
+
+          & button:hover {
+            color: #00340c;
+            background: #808080;
+          }
+        }
+      }
+    }
+  }
+}

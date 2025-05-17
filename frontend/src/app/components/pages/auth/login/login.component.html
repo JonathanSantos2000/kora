@@ -1,1 +1,31 @@
-<p>login works!</p>
+<div class="conteiner_register">
+  <div class="card">
+    <div class="left_card">
+      <form [formGroup]="loginForm" (ngSubmit)="submit()">
+        <div class="title_logo">
+          <h3>Bem Vindo de Volta</h3>
+        </div>
+        <!-- email -->
+        <app-text-input
+          [control]="fc['email']"
+          [showErrorWhen]="isSubmitted"
+          type="email"
+          label="Email:"
+        ></app-text-input>
+        <!-- password -->
+        <app-text-input
+          [control]="fc['password']"
+          [showErrorWhen]="isSubmitted"
+          type="password"
+          label="Senha:"
+        ></app-text-input>
+        <div class="btns">
+          <button type="submit">Entrar</button>
+        </div>
+      </form>
+    </div>
+    <div class="right_card">
+      <img src="assets/auth-img/register.png" alt="Register img" />
+    </div>
+  </div>
+</div>
