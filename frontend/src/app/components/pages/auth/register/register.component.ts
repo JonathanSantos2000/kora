@@ -9,15 +9,19 @@ import { PasswordMatchValidator } from '../../../../shared/validators/password_m
 import { ActivatedRoute, Router } from '@angular/router';
 import { TextInputComponent } from '../../../partials/form/text-input/text-input.component';
 import { CommonModule } from '@angular/common';
+import { IUserRegister } from '../../../../shared/interfaces/IUserRegister';
+import { UserService } from '../../../../services/user.service';
 
 @Component({
   selector: 'app-register',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, TextInputComponent],
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'], // corrigido de styleUrl → styleUrls
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
+  dataAtual = new Date();
+  dataFormatada = this.dataAtual.toLocaleDateString('pt-BR');
   registerForm!: FormGroup;
   isSubmitted: boolean = false;
 
@@ -26,6 +30,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
+    private userService: UserService,
     private router: Router
   ) {}
 
@@ -47,5 +52,22 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.controls;
   }
 
-  submit() {}
+  submit() {
+    this.isSubmitted = true;
+    if (this.registerForm.invalid) return;
+
+    const fv = this.registerForm.value;
+    const user: IUserRegister = {
+      name: fv.name,
+      email: fv.email,
+      password: fv.password,
+      confirmPassword: fv.confirmPassword,
+      role: 'User',
+      createdAt: this.dataFormatada,
+    };
+
+    this.userService.register(user).subscribe((_) => {
+      this.router.navigateByUrl(this.returnUrl);
+    });
+  }
 }
