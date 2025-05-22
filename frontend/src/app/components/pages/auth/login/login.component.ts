@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { TextInputComponent } from '../../../partials/form/text-input/text-input.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from '../../../../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
   returnUrl: string = '';
   constructor(
     private formBuilder: FormBuilder,
+    private userService: UserService,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {}
@@ -38,5 +40,17 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
 
-  submit() {}
+  submit() {
+    this.isSubmitted = true;
+    if (this.loginForm.invalid) return;
+
+    this.userService
+      .login({
+        email: this.fc['email'].value,
+        password: this.fc['password'].value,
+      })
+      .subscribe(() => {
+        this.router.navigateByUrl(this.returnUrl);
+      });
+  }
 }
