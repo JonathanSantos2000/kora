@@ -2,7 +2,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 85vh;
+  width: 85vw;
+  border: 1px solid #fff;
+
   & .card {
     display: flex;
     flex-direction: row;
@@ -33,8 +36,8 @@
             color: #8a8181;
           }
         }
-        & app-text-input{
-              width: 100%;
+        & app-text-input {
+          width: 100%;
         }
 
         & .btns {
@@ -50,18 +53,17 @@
             width: 100%;
             font-size: 18px;
             color: #fff;
-            background-color: #10B981;
+            background-color: #10b981;
             border: none;
             border-radius: 8px;
-            padding: .2rem;
+            padding: 0.2rem;
 
             cursor: pointer;
-            transition: .2s ease-in-out;
-
+            transition: 0.2s ease-in-out;
           }
 
           & button:hover {
-            color: #00340C;
+            color: #00340c;
             background: #808080;
           }
         }

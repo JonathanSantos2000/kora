@@ -1,0 +1,29 @@
+<div class="conteiner-menu-top">
+  <div class="user">
+    <div class="name">
+      <h1>{{ user.name }}</h1>
+    </div>
+    <button class="icon" (click)="openMenu()">
+      <div class="user-icon">
+        <i class="bi bi-person-circle"></i>
+      </div>
+      <div class="options-icon">
+        <i class="bi bi-caret-down-fill"></i>
+      </div>
+    </button>
+  </div>
+  <button class="notification">
+    <i class="bi bi-bell"></i>
+  </button>
+</div>
+
+<div class="menu-itens" [class.menuClass]="menuVariable">
+  <ul class="sub_menu">
+    <li>
+      <a href="#">Perfil</a>
+    </li>
+    <li id="logout">
+      <a (click)="logout()">Sair</a>
+    </li>
+  </ul>
+</div>
