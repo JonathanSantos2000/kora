@@ -4,10 +4,7 @@
       <img src="assets/auth-img/register.png" alt="Register img" />
     </div>
     <div class="right_card">
-      <form
-        [formGroup]="registerForm"
-        (ngSubmit)="submit()"
-      >
+      <form [formGroup]="registerForm" (ngSubmit)="submit()">
         <div class="title_logo">
           <h3>Criar uma conta</h3>
         </div>
@@ -45,6 +42,11 @@
           <button type="submit">Criar</button>
         </div>
       </form>
+
+      <div class="login">
+        Already a user? &nbsp;
+        <a routerLink="/login"> Login Here </a>
+      </div>
     </div>
   </div>
 </div>

@@ -15,7 +15,8 @@ export class MenuTopComponent {
   user!: User;
   constructor(private userService: UserService, private router: Router) {
     userService.userObservable.subscribe((newUser) => {
-      this.user = newUser;
+      this.user = newUser.user; // <--- aqui está a chave!
+      console.log(this.user.name); // Agora vai funcionar!
     });
   }
 

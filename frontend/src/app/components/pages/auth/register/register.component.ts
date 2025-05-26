@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { PasswordMatchValidator } from '../../../../shared/validators/password_match_validator';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { TextInputComponent } from '../../../partials/form/text-input/text-input.component';
 import { CommonModule } from '@angular/common';
 import { IUserRegister } from '../../../../shared/interfaces/IUserRegister';
@@ -15,7 +15,12 @@ import { UserService } from '../../../../services/user.service';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, TextInputComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    TextInputComponent,
+    RouterModule,
+  ],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })

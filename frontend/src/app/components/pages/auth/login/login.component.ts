@@ -7,13 +7,18 @@ import {
   Validators,
 } from '@angular/forms';
 import { TextInputComponent } from '../../../partials/form/text-input/text-input.component';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { UserService } from '../../../../services/user.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, TextInputComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    TextInputComponent,
+    RouterModule,
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })

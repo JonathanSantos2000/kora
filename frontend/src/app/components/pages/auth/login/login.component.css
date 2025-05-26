@@ -2,7 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 85vh;
+  width: 85vw;
   & .card {
     display: flex;
     flex-direction: row;
@@ -20,6 +21,7 @@
     & .left_card {
       width: 450px;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       border: 1px solid #fff;
@@ -68,6 +70,13 @@
             color: #00340c;
             background: #808080;
           }
+        }
+      }
+
+      & .register {
+        & a {
+          cursor: pointer;
+          text-decoration: underline;
         }
       }
     }

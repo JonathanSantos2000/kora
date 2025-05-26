@@ -4,7 +4,6 @@
   align-items: center;
   height: 85vh;
   width: 85vw;
-  border: 1px solid #fff;
 
   & .card {
     display: flex;
@@ -22,6 +21,7 @@
     & .right_card {
       width: 450px;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       border: 1px solid #fff;
@@ -66,6 +66,13 @@
             color: #00340c;
             background: #808080;
           }
+        }
+      }
+
+      & .login {
+        & a {
+          cursor: pointer;
+          text-decoration: underline;
         }
       }
     }
