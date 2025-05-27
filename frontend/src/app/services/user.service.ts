@@ -33,7 +33,7 @@ export class UserService {
           this.setUserToLocalStorage(user);
           this.userSubject.next(user);
           this.toastrService.success(
-            `Bem-vindo ao Kora, ${user.name}`,
+            `Bem-vindo ao Kora, ${user.UsuNom}`,
             'Login bem-sucedido'
           );
         },
@@ -51,7 +51,7 @@ export class UserService {
           this.setUserToLocalStorage(user);
           this.userSubject.next(user);
           this.toastrService.success(
-            `Bem-vindo ao Kora, ${user.name}`,
+            `Bem-vindo ao Kora, ${user.UsuNom}`,
             'Registro bem-sucedido'
           );
         },

@@ -2,20 +2,20 @@ import mongoose, { Schema, model, Types } from "mongoose";
 
 export interface IUser {
   _id: Types.ObjectId;
-  name: string;
-  email: string;
-  password: string;
-  role: string;
-  createdAt: Date;
+  UsuNom: string;
+  UsuEma: string;
+  UsuSen: string;
+  UsuPer: string;
+  UsuDatCad: Date;
 }
 
 export const userSchema = new Schema<IUser>(
   {
-    name: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
-    role: { type: String },
-    createdAt: { type: Date, default: Date.now },
+    UsuNom: { type: String, required: true },
+    UsuEma: { type: String, required: true, unique: true },
+    UsuSen: { type: String, required: true },
+    UsuPer: { type: String },
+    UsuDatCad: { type: Date, default: Date.now },
   },
   {
     timestamps: true,

@@ -63,12 +63,12 @@ export class RegisterComponent implements OnInit {
 
     const fv = this.registerForm.value;
     const user: IUserRegister = {
-      name: fv.name,
-      email: fv.email,
-      password: fv.password,
-      confirmPassword: fv.confirmPassword,
-      role: 'User',
-      createdAt: this.dataFormatada,
+      UsuNom: fv.name,
+      UsuEma: fv.email,
+      UsuSen: fv.password,
+      UsuSenCon: fv.confirmPassword,
+      UsuPer: 'User',
+      UsuDatCad: this.dataFormatada,
     };
 
     this.userService.register(user).subscribe((_) => {

@@ -1,8 +1,8 @@
 export interface IUserRegister {
-  name: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-  role: string;
-  createdAt: string;
+  UsuNom: string;
+  UsuEma: string;
+  UsuSen: string;
+  UsuSenCon: string;
+  UsuPer: string;
+  UsuDatCad: string;
 }

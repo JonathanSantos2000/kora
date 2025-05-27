@@ -1,9 +1,9 @@
 export class User {
   id!: string;
-  name!: string;
-  email!: string;
-  password!: string;
-  role!: string;
-  token!: string;
-  createdAt!: Date;
+  UsuNom!: string;
+  UsuEma!: string;
+  UsuSen!: string;
+  UsuPer!: string;
+  UsuTok!: string;
+  UsuDatCad!: Date;
 }

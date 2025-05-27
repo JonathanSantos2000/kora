@@ -21,7 +21,7 @@ export class MenuTopComponent {
   }
 
   get isAuth() {
-    return this.user.token;
+    return this.user.UsuTok;
   }
 
   logout() {

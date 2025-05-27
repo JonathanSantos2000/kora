@@ -48,11 +48,11 @@ export class LoginComponent implements OnInit {
   submit() {
     this.isSubmitted = true;
     if (this.loginForm.invalid) return;
-
+    console.log(this.fc['password'].value);
     this.userService
       .login({
-        email: this.fc['email'].value,
-        password: this.fc['password'].value,
+        UsuEma: this.fc['email'].value,
+        UsuSen: this.fc['password'].value,
       })
       .subscribe(() => {
         this.router.navigateByUrl(this.returnUrl);

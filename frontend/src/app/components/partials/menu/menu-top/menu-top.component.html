@@ -1,7 +1,7 @@
 <div class="conteiner-menu-top">
-  <div class="user" *ngIf="user.name != undefined">
+  <div class="user" *ngIf="user.UsuNom != undefined">
     <div class="name">
-      <h1>{{ user.name }}</h1>
+      <h1>{{ user.UsuNom }}</h1>
     </div>
     <button class="icon" (click)="openMenu()">
       <div class="user-icon">
@@ -12,7 +12,7 @@
       </div>
     </button>
   </div>
-  <button class="notification" *ngIf="user.name != undefined ">
+  <button class="notification" *ngIf="user.UsuNom != undefined ">
     <i class="bi bi-bell"></i>
   </button>
 </div>
