@@ -25,3 +25,31 @@ a {
   justify-content: center;
   align-items: center;
 }
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  margin-top: 25px;
+
+  & button {
+    width: 100%;
+    font-size: 18px;
+    color: #fff;
+    background-color: #10b981;
+    border: none;
+    border-radius: 8px;
+    padding: 0.2rem;
+
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+
+  & button:hover {
+    color: #00340c;
+    background: #808080;
+  }
+}

@@ -5,6 +5,7 @@ import express from "express";
 import cors from "cors";
 import { dbConnect } from "./configs/database.config";
 import userRoutes from "./routers/user.router";
+import accountRoutes from "./routers/account.router";
 
 dbConnect();
 
@@ -18,6 +19,7 @@ app.use(
 );
 
 app.use("/api/user", userRoutes);
+app.use("/api/account", accountRoutes);
 
 const port = 5000;
 app.listen(port, () => {

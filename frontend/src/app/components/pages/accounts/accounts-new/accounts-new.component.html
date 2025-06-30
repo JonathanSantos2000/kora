@@ -1,1 +1,67 @@
-<p>accounts-new works!</p>
+<div class="conteiner_account">
+  <form [formGroup]="accountForm" (ngSubmit)="submit()">
+    <fieldset>
+      <legend>Adicione uma nova conta</legend>
+      <div class="card">
+        <div class="card_left">
+          <app-text-input
+            [control]="fc['AccNom']"
+            [showErrorWhen]="isSubmitted"
+            type="text"
+            label="Apelido para a Conta:"
+          ></app-text-input>
+          <div class="selects">
+            <label>Selecione o tipo de Conta:</label><br />
+            <select formControlName="AccTip" (change)="mostrabanco()">
+              <option value="" selected>Selecione o tipo de Conta</option>
+              <option value="dinheiro">Dinheiro</option>
+              <option value="debito">Debito</option>
+              <option value="credito">credito</option>
+              <option value="investimento">investimento</option>
+
+              <!-- <option *ngFor="let loja of lojas" [value]="loja.name">
+                {{ loja.name }}
+              </option>
+              "dinheiro" | "debito" | "credito" | "investimento";
+              -->
+            </select>
+          </div>
+          <div class="selects" *ngIf="showBanco">
+            <label>Selecione o banco:</label><br />
+            <select formControlName="AccBanId">
+              <option value="" selected>Selecione o Banco</option>
+              <option value="1">Inter</option>
+
+              <!-- <option *ngFor="let loja of lojas" [value]="loja.name">
+                {{ loja.name }}
+              </option> -->
+            </select>
+          </div>
+        </div>
+
+        <div class="card_right">
+          <app-text-input
+            [control]="fc['AccSalIni']"
+            [showErrorWhen]="isSubmitted"
+            type="number"
+            label="Saldo Inicial"
+          ></app-text-input>
+
+          <div class="selects">
+            <label>Selecione a espécie:</label><br />
+            <select formControlName="AccMoe">
+              <option value="1" selected>Real</option>
+
+              <!-- <option *ngFor="let loja of lojas" [value]="loja.name">
+                {{ loja.name }}
+              </option> -->
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="btns">
+        <button type="submit">Entrar</button>
+      </div>
+    </fieldset>
+  </form>
+</div>
