@@ -1,0 +1,14 @@
+.conteiner_menu-add {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+
+  & .icon-menu {
+    border: none;
+    background: none;
+    cursor: pointer;
+    & i {
+      font-size: 64px;
+    }
+  }
+}
