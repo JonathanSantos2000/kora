@@ -4,7 +4,10 @@ import { ToastrService } from 'ngx-toastr';
 import { IAccount } from '../shared/interfaces/IAccount';
 import { Observable, tap } from 'rxjs';
 import { Account } from '../shared/models/account.model';
-import { CREATE_NEW_ACCOUNT } from '../shared/constants/urls';
+import {
+  CREATE_NEW_ACCOUNT,
+  GET_ALL_ACOUNTS_URL,
+} from '../shared/constants/urls';
 
 @Injectable({
   providedIn: 'root',
@@ -25,5 +28,9 @@ export class AccountsService {
         },
       })
     );
+  }
+
+  getAllAccounts(): Observable<Account[]> {
+    return this.http.get<Account[]>(GET_ALL_ACOUNTS_URL);
   }
 }

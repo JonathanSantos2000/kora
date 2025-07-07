@@ -5,7 +5,7 @@ export interface IUser {
   UsuNom: string;
   UsuEma: string;
   UsuSen: string;
-  UsuPer: string;
+  UsuPer: number;
   UsuDatCad: Date;
 }
 
@@ -14,7 +14,7 @@ export const userSchema = new Schema<IUser>(
     UsuNom: { type: String, required: true },
     UsuEma: { type: String, required: true, unique: true },
     UsuSen: { type: String, required: true },
-    UsuPer: { type: String },
+    UsuPer: { type: Number },
     UsuDatCad: { type: Date, default: Date.now },
   },
   {

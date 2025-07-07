@@ -33,3 +33,7 @@ export const createAccount = async ({
 
   return await account.save();
 };
+
+export const getAllAccount = async (): Promise<IAccounts[]> => {
+  return await Account.find().sort({ name: 1 });
+};

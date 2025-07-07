@@ -1,1 +1,26 @@
-<p>accounts works!</p>
+<div class="conteiner_account">
+  <div class="account_header">
+    <h1 class="title">Contas e Carteiras Cadastradas</h1>
+    <a [routerLink]="['/accounts/add-account']">
+      <h1>Adicionar Nova Conta<i class="bi bi-plus-circle"></i></h1>
+    </a>
+  </div>
+  <div class="account_body">
+    <table>
+      <tr>
+        <th>Apelido</th>
+        <th>Tipo de Conta</th>
+        <th>Saldo Atual</th>
+        <th>Espécie</th>
+        <th>Ações</th>
+      </tr>
+      <tr *ngFor="let account of accounts">
+        <td>{{ account.AccNom }}</td>
+        <td>{{ account.AccTip }}</td>
+        <td>R{{ account.AccSalAtu | currency }}</td>
+        <td>{{ account.AccMoe }}</td>
+        <td><i class="bi bi-pencil-square"></i></td>
+      </tr>
+    </table>
+  </div>
+</div>

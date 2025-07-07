@@ -1,4 +1,4 @@
-import { Injectable, inject } from '@angular/core';
+import { Inject, Injectable, inject, PLATFORM_ID } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { User } from '../shared/models/user.models';
 import { HttpClient } from '@angular/common/http';
@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { IUserRegister } from '../shared/interfaces/IUserRegister';
 import { IUserLogin } from '../shared/interfaces/IUserLogin';
 import { USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
+import { isPlatformBrowser } from '@angular/common';
 
 const USER_KEY = 'User';
 
@@ -19,11 +20,17 @@ export class UserService {
   private http = inject(HttpClient);
   private toastrService = inject(ToastrService);
 
-  constructor() {
-    const userFromStorage = this.getUserFromLocalStorage();
-    if (userFromStorage) {
-      this.userSubject.next(userFromStorage);
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    if (this.isBrowser()) {
+      const userFromStorage = this.getUserFromLocalStorage();
+      if (userFromStorage) {
+        this.userSubject.next(userFromStorage);
+      }
     }
+  }
+
+  private isBrowser(): boolean {
+    return isPlatformBrowser(this.platformId);
   }
 
   login(userLogin: IUserLogin): Observable<User> {
@@ -64,20 +71,20 @@ export class UserService {
 
   logout() {
     this.userSubject.next(new User());
-    if (typeof window !== 'undefined') {
+    if (this.isBrowser()) {
       localStorage.removeItem(USER_KEY);
       window.location.reload();
     }
   }
 
   private setUserToLocalStorage(user: User) {
-    if (typeof window !== 'undefined') {
+    if (this.isBrowser()) {
       localStorage.setItem(USER_KEY, JSON.stringify(user));
     }
   }
 
   private getUserFromLocalStorage(): User | null {
-    if (typeof window !== 'undefined') {
+    if (this.isBrowser()) {
       const userJson = localStorage.getItem(USER_KEY);
       if (userJson) return JSON.parse(userJson) as User;
     }

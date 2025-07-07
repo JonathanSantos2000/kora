@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-menu-left',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './menu-left.component.html',
-  styleUrl: './menu-left.component.css'
+  styleUrl: './menu-left.component.css',
 })
-export class MenuLeftComponent {
-
-}
+export class MenuLeftComponent {}

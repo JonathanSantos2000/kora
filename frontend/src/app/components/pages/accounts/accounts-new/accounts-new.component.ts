@@ -41,6 +41,7 @@ export class AccountsNewComponent implements OnInit {
       this.user = newUser;
     });
   }
+
   ngOnInit(): void {
     this.accountForm = this.formBuilder.group({
       AccNom: ['', [Validators.required]],
@@ -51,6 +52,7 @@ export class AccountsNewComponent implements OnInit {
     });
     this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'];
   }
+
   get fc() {
     return this.accountForm.controls;
   }
@@ -67,9 +69,7 @@ export class AccountsNewComponent implements OnInit {
       AccSalIni: fv.AccSalIni,
       AccMoe: fv.AccMoe,
     };
-    this.accountService.CreateAccount(account).subscribe((_) => {
-      this.router.navigateByUrl(this.returnUrl);
-    });
+    this.accountService.CreateAccount(account).subscribe((_) => {});
   }
 
   showBanco: boolean = false;

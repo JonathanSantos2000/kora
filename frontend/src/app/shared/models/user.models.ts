@@ -3,7 +3,7 @@ export class User {
   UsuNom!: string;
   UsuEma!: string;
   UsuSen!: string;
-  UsuPer!: string;
+  UsuPer!: number;
   UsuTok!: string;
   UsuDatCad!: Date;
 }

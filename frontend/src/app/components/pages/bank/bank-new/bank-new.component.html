@@ -1,0 +1,22 @@
+<div class="conteiner_bank">
+  <form [formGroup]="bankForm" (ngSubmit)="submit()">
+    <fieldset>
+      <legend>Adicione um novo banco</legend>
+      <div class="card">
+        <app-text-input
+          [control]="fc['BanNom']"
+          [showErrorWhen]="isSubmitted"
+          type="text"
+          label="Nome Banco:"
+        ></app-text-input>
+        <div *ngIf="user.UsuPer === 1" class="checkbox">
+          <label for="sacola">Tornar publico?</label>
+          <input type="checkbox" formControlName="BanSta" />
+        </div>
+      </div>
+      <div class="btns">
+        <button type="submit">Salvar</button>
+      </div>
+    </fieldset>
+  </form>
+</div>
