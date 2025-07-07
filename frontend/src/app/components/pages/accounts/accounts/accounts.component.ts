@@ -4,15 +4,15 @@ import { CommonModule } from '@angular/common';
 
 import { Account } from '../../../../shared/models/account.model';
 import { AccountsService } from '../../../../services/accounts.service';
+import { CapitalizePipe } from '../../../../shared/pipes/capitalize.pipe';
 
 @Component({
   selector: 'app-accounts',
   standalone: true,
-  imports: [CommonModule, RouterLink], // necessário para ngIf, ngFor e routerLink
+  imports: [CommonModule, RouterLink, CapitalizePipe], // necessário para ngIf, ngFor e routerLink
   templateUrl: './accounts.component.html',
   styleUrls: ['./accounts.component.css'],
 })
-
 export class AccountsComponent {
   accounts: Account[] = [];
 

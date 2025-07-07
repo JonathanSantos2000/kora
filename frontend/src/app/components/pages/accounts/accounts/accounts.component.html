@@ -16,8 +16,12 @@
       </tr>
       <tr *ngFor="let account of accounts">
         <td>{{ account.AccNom }}</td>
-        <td>{{ account.AccTip }}</td>
-        <td>R{{ account.AccSalAtu | currency }}</td>
+        <td>{{ account.AccTip | capitalize }}</td>
+        <td>
+          R{{
+            account.AccSalAtu | currency : "BRL" : "symbol" : "1.2-2" : "pt-BR"
+          }}
+        </td>
         <td>{{ account.AccMoe }}</td>
         <td><i class="bi bi-pencil-square"></i></td>
       </tr>
