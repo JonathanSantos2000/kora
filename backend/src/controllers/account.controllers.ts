@@ -20,3 +20,19 @@ export const getAll = async (req: Request, res: Response): Promise<void> => {
     res.status(500).json({ error: "Erro interno ao buscar contas." });
   }
 };
+
+export const deleteAccountById = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { id } = req.params; // CORRETO: ID vem da URL
+    const deleted = await accountService.deleteAccountById(id);
+    console.log(id);
+    if (deleted) {
+      res.status(200).json({ message: "Conta deletada com sucesso." });
+    } else {
+      res.status(404).json({ error: "Conta não encontrada." });
+    }
+  } catch (error: any) {
+    console.error("Erro ao deletar conta:", error.message);
+    res.status(500).json({ error: "Erro ao deletar conta." });
+  }
+};

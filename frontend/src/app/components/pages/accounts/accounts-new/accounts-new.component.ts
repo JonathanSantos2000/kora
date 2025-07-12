@@ -12,6 +12,8 @@ import { TextInputComponent } from '../../../partials/form/text-input/text-input
 import { CommonModule } from '@angular/common';
 import { IAccount } from '../../../../shared/interfaces/IAccount';
 import { AccountsService } from '../../../../services/accounts.service';
+import { Bank } from '../../../../shared/models/bank.model';
+import { BankService } from '../../../../services/bank.service';
 
 @Component({
   selector: 'app-accounts-new',
@@ -35,7 +37,8 @@ export class AccountsNewComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private userService: UserService,
-    private accountService: AccountsService
+    private accountService: AccountsService,
+    private bankService: BankService
   ) {
     userService.userObservable.subscribe((newUser) => {
       this.user = newUser;
@@ -49,8 +52,12 @@ export class AccountsNewComponent implements OnInit {
       AccBanId: ['', [Validators.required]],
       AccSalIni: ['', [Validators.required]],
       AccMoe: [1, [Validators.required]],
+      CreLim: ['', [Validators.required]],
+      CreDiaFech: ['', [Validators.required]],
+      CreDiaVenc: ['', [Validators.required]],
     });
     this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'];
+    this.getAllBank();
   }
 
   get fc() {
@@ -73,9 +80,22 @@ export class AccountsNewComponent implements OnInit {
   }
 
   showBanco: boolean = false;
+  Banks: Bank[] = [];
+
+  getAllBank() {
+    this.bankService.getAllBanks().subscribe((banks) => {
+      this.Banks = banks;
+    });
+  }
   mostrabanco() {
     if (this.fc['AccTip'].value != 'dinheiro') {
       this.showBanco = true;
+
+      if (this.fc['AccTip'].value == 'credito') {
+        this.fc['CreLim'].setValue(0);
+        this.fc['CreDiaFech'].setValue(0);
+        this.fc['CreDiaVenc'].setValue(0);
+      }
     } else {
       this.showBanco = false;
       this.fc['AccBanId'].setValue(1);

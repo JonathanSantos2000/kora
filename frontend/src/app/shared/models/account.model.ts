@@ -1,4 +1,5 @@
 export class Account {
+  _id!: string;
   AccUsuId!: string;
   AccNom!: string;
   AccTip!: string;

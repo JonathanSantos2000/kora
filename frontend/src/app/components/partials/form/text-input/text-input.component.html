@@ -1,5 +1,16 @@
 <app-input-group [label]="label">
-  <input [type]="type" [formControl]="formControl" />
+  <input
+    [type]="'text'"
+    [value]="formattedValue"
+    (input)="onInput($event)"
+    [formControl]="formControl"
+  />
   <app-input-validation [control]="control" [showErrorWhen]="showErrorWhen">
   </app-input-validation>
 </app-input-group>
+
+<!-- <app-input-group [label]="label">
+  <input [type]="type" [formControl]="formControl" />
+  <app-input-validation [control]="control" [showErrorWhen]="showErrorWhen">
+  </app-input-validation>
+</app-input-group> -->

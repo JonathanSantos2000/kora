@@ -19,6 +19,10 @@ export const createBank = async ({
     BanSta,
     BanIco,
   });
-  
+
   return await banco.save();
+};
+
+export const getAllBanks = async (): Promise<IBankInput[]> => {
+  return await Bank.find().sort({ name: 1 });
 };

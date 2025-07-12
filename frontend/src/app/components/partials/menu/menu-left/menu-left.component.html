@@ -1,4 +1,4 @@
-<div class="component-menu-left">
+<div class="component-menu-left" *ngIf="menu_level === 'menu'">
   <div class="topo">
     <img src="assets/logo/Logo_retangulo_sem_fundo.png" alt="" />
 
@@ -27,8 +27,43 @@
   </div>
   <div class="footer">
     <hr />
-    <button class="conteiner">
+    <button class="conteiner" (click)="open_config()">
       <i class="bi bi-sliders2"></i>Configurações
+    </button>
+  </div>
+</div>
+
+<div class="component-menu-left" *ngIf="menu_level === 'config'">
+  <div class="topo">
+    <img src="assets/logo/Logo_retangulo_sem_fundo.png" alt="" />
+
+    <hr />
+  </div>
+  <div class="centro">
+    <ul>
+      <li>
+        <a href="#"><i class="bi bi-house-door"></i>Dashboard</a>
+      </li>
+      <li>
+        <a href="#" routerLinkActive="router-link-active">
+          <i class="bi bi-credit-card"></i>Contas
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/config/add-bank']"><i class="bi bi-bank"></i>Instituições</a>
+      </li>
+      <li>
+        <a href="#"><i class="bi bi-filetype-doc"></i>Relatório</a>
+      </li>
+      <li>
+        <a href="#"><i class="bi bi-cash-coin"></i>Orçamento</a>
+      </li>
+    </ul>
+  </div>
+  <div class="footer">
+    <hr />
+    <button class="conteiner" (click)="back_home()">
+      <i class="bi bi-sliders2"></i>Voltar
     </button>
   </div>
 </div>

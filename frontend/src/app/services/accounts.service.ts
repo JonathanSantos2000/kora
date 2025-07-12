@@ -6,6 +6,7 @@ import { Observable, tap } from 'rxjs';
 import { Account } from '../shared/models/account.model';
 import {
   CREATE_NEW_ACCOUNT,
+  DELETE_ACOUNTS_BY_ID_URL,
   GET_ALL_ACOUNTS_URL,
 } from '../shared/constants/urls';
 
@@ -32,5 +33,9 @@ export class AccountsService {
 
   getAllAccounts(): Observable<Account[]> {
     return this.http.get<Account[]>(GET_ALL_ACOUNTS_URL);
+  }
+
+  deleteAccountById(id: string): Observable<Account> {
+    return this.http.delete<Account>(`${DELETE_ACOUNTS_BY_ID_URL.replace(':id', id.toString())}`);
   }
 }

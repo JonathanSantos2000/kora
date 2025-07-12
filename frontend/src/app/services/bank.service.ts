@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Bank } from '../shared/models/bank.model';
-import { CREATE_NEW_BANK } from '../shared/constants/urls';
+import { CREATE_NEW_BANK, GET_ALL_BANKS_URL } from '../shared/constants/urls';
 import { IBank } from '../shared/interfaces/IBank';
 import { Observable, tap } from 'rxjs';
 
@@ -25,5 +25,9 @@ export class BankService {
         },
       })
     );
+  }
+
+  getAllBanks(): Observable<Bank[]> {
+    return this.http.get<Bank[]>(GET_ALL_BANKS_URL);
   }
 }

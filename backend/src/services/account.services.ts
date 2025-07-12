@@ -37,3 +37,10 @@ export const createAccount = async ({
 export const getAllAccount = async (): Promise<IAccounts[]> => {
   return await Account.find().sort({ name: 1 });
 };
+
+export const deleteAccountById = async (id: string): Promise<boolean> => {
+  const result = await Account.deleteOne({ _id: id });
+  return result.deletedCount > 0;
+};
+
+

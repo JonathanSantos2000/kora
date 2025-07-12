@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, type OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { Account } from '../../../../shared/models/account.model';
 import { AccountsService } from '../../../../services/accounts.service';
 import { CapitalizePipe } from '../../../../shared/pipes/capitalize.pipe';
+import { error } from 'node:console';
 
 @Component({
   selector: 'app-accounts',
@@ -13,13 +14,29 @@ import { CapitalizePipe } from '../../../../shared/pipes/capitalize.pipe';
   templateUrl: './accounts.component.html',
   styleUrls: ['./accounts.component.css'],
 })
-export class AccountsComponent {
+export class AccountsComponent implements OnInit {
   accounts: Account[] = [];
 
-  constructor(private accountService: AccountsService) {
+  constructor(private accountService: AccountsService) {}
+
+  ngOnInit(): void {
+    this.getAccounts();
+  }
+
+  getAccounts() {
     this.accountService.getAllAccounts().subscribe((serverAccounts) => {
       this.accounts = serverAccounts;
-      console.log(this.accounts);
+    });
+  }
+
+  deleteAccount(id: string) {
+    this.accountService.deleteAccountById(id).subscribe({
+      next: () => {
+        this.getAccounts();
+      },
+      error: (error) => {
+        console.error("Erro ao deletar conta:", error);
+      }
     });
   }
 }

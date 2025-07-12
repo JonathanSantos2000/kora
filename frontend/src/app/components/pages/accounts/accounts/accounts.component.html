@@ -17,13 +17,14 @@
       <tr *ngFor="let account of accounts">
         <td>{{ account.AccNom }}</td>
         <td>{{ account.AccTip | capitalize }}</td>
-        <td>
-          R{{
-            account.AccSalAtu | currency : "BRL" : "symbol" : "1.2-2" : "pt-BR"
-          }}
-        </td>
+        <td>R{{ account.AccSalAtu | currency }}</td>
         <td>{{ account.AccMoe }}</td>
-        <td><i class="bi bi-pencil-square"></i></td>
+        <td class="Acoes">
+          <button><i class="bi bi-pencil-square"></i></button>
+          <button (click)="deleteAccount(account._id)">
+            <i class="bi bi-trash"></i>
+          </button>
+        </td>
       </tr>
     </table>
   </div>
