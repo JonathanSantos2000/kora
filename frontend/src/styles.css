@@ -5,12 +5,16 @@
 }
 
 body {
-  background: #e0f7fa;
   background: linear-gradient(
-    -210deg,
-    rgba(224, 247, 250, 1) 0%,
-    rgba(128, 222, 234, 1) 100%
-  );
+      -210deg,
+      rgba(224, 247, 250, 0.7) 0%,
+      rgba(128, 222, 234, 0.7) 100%
+    ),
+    url("/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
   width: 100vw;
   height: 100vh;
 }

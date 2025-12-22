@@ -88,14 +88,12 @@ export class AccountsNewComponent implements OnInit {
     });
   }
   mostrabanco() {
+    this.fc['CreLim'].setValue(0);
+    this.fc['CreDiaFech'].setValue(0);
+    this.fc['CreDiaVenc'].setValue(0);
+    
     if (this.fc['AccTip'].value != 'dinheiro') {
       this.showBanco = true;
-
-      if (this.fc['AccTip'].value == 'credito') {
-        this.fc['CreLim'].setValue(0);
-        this.fc['CreDiaFech'].setValue(0);
-        this.fc['CreDiaVenc'].setValue(0);
-      }
     } else {
       this.showBanco = false;
       this.fc['AccBanId'].setValue(1);

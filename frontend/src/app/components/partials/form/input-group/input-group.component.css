@@ -1,20 +1,19 @@
 .container__input-group {
   position: relative;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   border-radius: 8px;
-  padding: .3rem 0 0 .2rem;
+  padding: 0.3rem 0 0 0.2rem;
 
   & label {
     display: inline-block;
-    margin-left: .5rem;
-    font-size: .9rem;
-    color: #00340C;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #00340c;
   }
 }
 
 .content {
-  padding: 0 .5rem;
-  height: 2.0rem;
+  height: 2rem;
   display: flex;
   align-items: center;
 }

@@ -5,7 +5,8 @@ input {
   border-bottom: 1px solid #8a8181;
   transition: border-bottom 0.15s ease-out;
   background: none;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
   outline: none;
 }
 
