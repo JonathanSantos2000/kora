@@ -14,6 +14,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  background-attachment: fixed;
 
   width: 100vw;
   height: 100vh;
@@ -35,25 +36,23 @@ a {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
   width: 100%;
   margin-top: 25px;
+}
 
-  & button {
-    width: 100%;
-    font-size: 18px;
-    color: #fff;
-    background-color: #10b981;
-    border: none;
-    border-radius: 8px;
-    padding: 0.2rem;
+.btns button {
+  width: 100%;
+  font-size: 18px;
+  color: #fff;
+  background-color: #10b981;
+  border: none;
+  border-radius: 8px;
+  padding: 0.2rem;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
 
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-  }
-
-  & button:hover {
-    color: #00340c;
-    background: #808080;
-  }
+.btns button:hover {
+  color: #00340c;
+  background: #808080;
 }

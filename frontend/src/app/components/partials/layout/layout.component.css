@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.desktop .menu {
+  width: 260px;
+}
+
+.desktop .main {
+  flex: 1;
+  position: relative;
+}
+
+.mobile {
+  width: 100%;
+  flex-direction: column;
+}
+
+.mobile main {
+  flex: 1;
+  overflow: auto;
+}

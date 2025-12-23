@@ -1,15 +1,14 @@
 .conteiner_menu-add {
   position: absolute;
   bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 15px;
 
   & .icon-menu {
     border: none;
     background: none;
     cursor: pointer;
     & i {
-      font-size: 32px;
+      font-size: 64px;
     }
   }
 }

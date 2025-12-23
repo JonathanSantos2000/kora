@@ -1,0 +1,29 @@
+<ng-container *ngIf="(isMobile$ | async)?.matches; else desktop">
+  <!-- 📱 MOBILE -->
+  <div class="container mobile">
+    <app-menu-top class="mobile"></app-menu-top>
+
+    <main class="main">
+      <router-outlet></router-outlet>
+    </main>
+
+    <app-menu-bottom></app-menu-bottom>
+  </div>
+</ng-container>
+
+<ng-template #desktop>
+  <!-- 🖥️ DESKTOP -->
+  <div class="container desktop">
+    <div class="menu">
+      <app-menu-left></app-menu-left>
+    </div>
+
+    <div class="main">
+      <app-menu-top class="desktop"></app-menu-top>
+
+      <router-outlet></router-outlet>
+
+      <app-menu-add></app-menu-add>
+    </div>
+  </div>
+</ng-template>

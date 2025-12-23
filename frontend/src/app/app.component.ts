@@ -3,10 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { MenuLeftComponent } from "./components/partials/menu/menu-left/menu-left.component";
 import { MenuTopComponent } from "./components/partials/menu/menu-top/menu-top.component";
 import { MenuAddComponent } from "./components/partials/menu/menu-add/menu-add.component";
+import { LayoutComponent } from './components/partials/layout/layout.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MenuLeftComponent, MenuTopComponent, MenuAddComponent],
+  imports: [LayoutComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

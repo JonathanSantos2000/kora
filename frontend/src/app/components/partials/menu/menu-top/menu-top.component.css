@@ -1,89 +1,194 @@
+/* =========================
+   HOST
+========================= */
+:host {
+  display: block;
+  width: 100%;
+}
+
+/* =========================
+   BASE (COMUM A TODOS)
+========================= */
 .conteiner-menu-top {
-  width: 85vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1100;
+
   height: max-content;
-  padding: 0.6rem 100px 0 0;
   display: flex;
   flex-direction: row;
-  justify-content: end;
   align-items: center;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-
-  & .user {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-right: 0.9rem;
-
-    & .name {
-      & h1 {
-        color: black;
-        font-size: 14px;
-        margin-right: 0.5rem;
-      }
-    }
-    & .icon {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-
-      background: none;
-      border: none;
-      cursor: pointer;
-      & .user-icon {
-        margin-right: 0.2rem;
-        & i {
-          display: block;
-          color: black;
-          font-size: 33px;
-        }
-      }
-
-      & .options-icon {
-        & i {
-          display: block;
-          color: black;
-        }
-      }
-    }
-  }
-  & .notification {
-    background: none;
-    border: none;
-    cursor: pointer;
-
-    & i {
-      display: block;
-      color: black;
-      font-size: 33px;
-    }
-  }
+  background: #fff;
 }
 
-.menu-itens {
+/* =========================
+   DESKTOP
+========================= */
+:host(.desktop) .conteiner-menu-top {
+  justify-content: end;
+  padding: 0.6rem 100px 0 0;
+}
+
+/* =========================
+   MOBILE
+========================= */
+:host(.mobile) .conteiner-menu-top {
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
+}
+/* =========================
+   LOGO
+========================= */
+.logo {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  padding-left: 1rem;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.logo hr {
+  height: 30px;
+  margin-left: 1rem;
+  border: 1px solid #e0e0e0;
+}
+
+/* Esconde detalhes no mobile */
+:host(.mobile) .logo hr {
   display: none;
-  position: absolute;
-  right: 50px;
-  border: 1px solid #f1f1f1;
-  background: #6eb4bd;
-  border-radius: 5px;
-  min-width: 150px;
-  width: max-content;
-  & ul {
-    padding: 0.5rem;
-
-    & li {
-      list-style: none;
-      padding: 0.5rem;
-    }
-
-    & #logout {
-      border-top: 1px solid #f1f1f1;
-    }
-  }
 }
 
+/* =========================
+   USER
+========================= */
+.user {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.9rem;
+  height: 40px;
+}
+
+/* Nome do usuário */
+.user .name h1 {
+  color: #444;
+  font-size: 14px;
+  margin-right: 0.5rem;
+}
+
+/* Esconde nome no mobile */
+:host(.mobile) .user .name {
+  display: none;
+}
+
+/* =========================
+   ICONES DO USUÁRIO
+========================= */
+.user .icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Ícone usuário */
+.user .icon .user-icon {
+  margin-right: 0.2rem;
+}
+
+.user .icon .user-icon i {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  /* display: block; */
+  color: #444;
+  font-size: 33px;
+}
+
+/* Ícone opções */
+.user .icon .options-icon i {
+  display: block;
+  color: #444;
+}
+
+/* Ajuste de ícones no mobile */
+:host(.mobile) .user .icon i {
+  font-size: 28px;
+}
+
+/* =========================
+   NOTIFICAÇÃO
+========================= */
+.notification {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.notification i {
+  display: block;
+  color: black;
+  font-size: 33px;
+}
+
+/* =========================
+   MENU DROPDOWN
+========================= */
+.menu-itens {
+  position: absolute;
+  top: 100%;
+  right: 50px;
+  background: #6eb4bd;
+  border-radius: 6px;
+  min-width: 160px;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: all 0.25s ease;
+  z-index: 1000;
+}
+
+/* Mobile posição */
+:host(.mobile) .menu-itens {
+  right: 1rem;
+}
+
+/* Menu aberto */
+.menuClass {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Lista */
+.menu-itens ul {
+  padding: 0.5rem;
+}
+
+.menu-itens li {
+  list-style: none;
+  padding: 0.5rem;
+}
+
+.menu-itens li#logout {
+  border-top: 1px solid #f1f1f1;
+}
+
+/* =========================
+   MENU VISÍVEL
+========================= */
 .menuClass {
   display: block;
 }
